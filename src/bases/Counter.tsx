@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 interface CounterProps {
-  initialValue: number
+  initialValue?: number
 }
 
 const Counter = ({ initialValue = 0 }: CounterProps) => {
@@ -18,7 +18,7 @@ const Counter = ({ initialValue = 0 }: CounterProps) => {
   }
   return (
     <div>
-      <h2>Counter {counter}</h2>
+      <h2>Counter: {counter}</h2>
       <button onClick={addCount}>+1</button>
       <button onClick={resetCount}>reset</button>
       <button onClick={substractCount}>-1</button>
