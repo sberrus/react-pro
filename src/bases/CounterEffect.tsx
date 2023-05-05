@@ -1,27 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useCounter } from '../hooks/useCounter'
 
 const CounterEffect = () => {
-  const [counter, setCounter] = useState(5)
-
-  const MAXIMUM_COUNT = 10
-
-  const handleClick = () => {
-    if (counter < MAXIMUM_COUNT) {
-      setCounter((prev) => prev + 1)
-    }
-  }
-
-  useEffect(() => {
-    return () => {
-      if (counter < 10) return
-
-      console.log('Se llego al valor máximo')
-    }
-  }, [counter])
+  const { counter, handleClick, elementToAnimate } = useCounter({ maxCount: 10 })
 
   return (
     <div>
-      <h2>Counter Effect: {counter}</h2>
+      <h2>Counter Effect:</h2>
+      <h3 ref={elementToAnimate}>{counter}</h3>
       <button onClick={handleClick}>+1</button>
     </div>
   )
